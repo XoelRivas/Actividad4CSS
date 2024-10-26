@@ -9,7 +9,7 @@
     clear: both;
 }
 
-#contenedorPrincipal{
+body {
     background-image: url(img/paven.png);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -84,7 +84,7 @@ nav ul li a{
 /*Contenido principal*/
 #content{
     width: 1250px;
-    height: 1100px;
+    height: auto;
     margin: auto;
     margin-top: 40px;
 }
@@ -135,6 +135,8 @@ input[type = "submit"]:hover{
 
 /*Secciones*/
 #sections{
+    display: flex;
+    flex-direction: column;
     float: left;
     width: 75%;
     min-height: 1100px;
@@ -180,6 +182,8 @@ input[type = "submit"]:hover{
 
 /*Pie de página*/
 footer{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin: auto;
     background-color: #333333;
@@ -190,10 +194,23 @@ footer{
 
 /*Diseño responsivo*/
 
-@media(max-width: 1192px){
+@media(max-width: 768px){
+    nav{
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
     #content{
         width: 95%;
         margin: 20px auto;
+        display: flex;
+        flex-direction: column;
     }
 
     #sections{
@@ -203,7 +220,19 @@ footer{
 
     #aside{
         width: 100%;
+        display: flex;
+        flex-direction: row;
         margin-bottom: 20px;
+    }
+
+    .widget{
+        border-right: 1px dashed gray;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .widget:last-child{
+        border-right: none;
     }
 
     #logotipo img{
@@ -217,42 +246,45 @@ footer{
     nav ul{
         width: 100%;
     }
-}
 
-@media(max-width: 1049px){
-    nav{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        height: auto;
-    }
-
-    nav ul{
-        flex-wrap: wrap;
-        background-color: #333333;
-        width: 100%;
-    }
-
-    #aside{
-        margin-bottom: 25px;
+    .clearfix{
+        float: none;
+        clear: both;
     }
 }
-
 
 @media(max-width: 480px){
     #content{
         width: 100%;
         margin: 5px auto;
         font-size: 14px;
+        align-items: center;
     }
 
     #sections{
-        width: 100%;
+        width: 95%;
         margin-left: 0;
     }
 
     #aside{
-        width: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .widget{
+        border-right: none;
+        border-bottom: 1px dashed gray;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .widget:last-child{
+        border-bottom: none;
     }
 
     #logotipo img{
